@@ -1,56 +1,94 @@
 "use client";
-import React from "react";
-import { Mail, Instagram } from "lucide-react";
 
-function Footer() {
+import React, { useState } from "react";
+import Link from "next/link";
+
+function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+    const menuList = [
+        { name: "Trading", link: "/trading" },
+        { name: "About", link: "/about" },
+        { name: "Contact", link: "/contact" },
+        { name: "Careers", link: "/careers" }
+    ];
+
+    const toggleDrawer = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <footer className="text-white px-4 md:px-16 py-6 font-playfair mt-10">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#1C1C1C] p-4 md:p-6 border rounded">
-            {/* Contact Information */}
-            <div className="space-y-2 text-center md:text-left">
-                <h3 className="text-lg font-bold">Contact Information</h3>
-                <p>Phone: +91 9876543210</p>
-                <p>Tel: 0712 - 2765438</p>
-                <p>Email: <a href="mailto" className="underline">bartr_opinion@gmail.com</a></p>
-                <p>Address: Nagpur / Pune / Mumbai</p>
-                <p>Visit Us On:</p>
-                <div className="flex justify-center md:justify-start space-x-4">
-                    <a href="#" className="text-gray-400 hover:text-white">
-                        <Instagram className="w-5 h-5" />
-                    </a>
-                    <a href="mailto" className="text-gray-400 hover:text-white">
-                        <Mail className="w-5 h-5" />
-                    </a>
+        <nav className="font-[var(--font-clashDisplay)] py-3 px-12 border-b flex items-center justify-between bg-gray-50 relative z-20">
+            {/* Desktop and Tablet Menu */}
+            <div className="flex items-center justify-between w-full">
+                <h1 className="text-2xl font-semibold text-gray-900">BartrOpinion</h1>
+                <div className="hidden lg:flex gap-6 items-center text-gray-800 text-lg">
+                    {menuList.map((item, index) => (
+                        <Link key={index} href={item.link} className="hover:underline">
+                            {item.name}
+                        </Link>
+                    ))}
+                </div>
+
+                <div className="hidden lg:flex items-center gap-4">
+                    <span className="text-sm text-gray-600">For 18 years and above only</span>
+                    <Link href="/download">
+                        <button className="bg-black border px-4 py-1 rounded-md font-medium">
+                            Download App
+                        </button>
+                    </Link>
+                </div>
+
+                {/* Mobile and Tablet Menu Button */}
+                <div className="lg:hidden">
+                    <button
+                        onClick={toggleDrawer}
+                        className="p-2 rounded-md text-black hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <svg
+                            className="block h-6 w-6"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
             </div>
-    
-            {/* Quick Links */}
-            <div className="text-center md:text-left">
-                <h3 className="text-lg font-bold">Quick Links</h3>
-                <ul className="space-y-2">
-                    <li><a href="#" className="hover:underline">Home</a></li>
-                    <li><a href="#" className="hover:underline">About Us</a></li>
-                    <li><a href="#" className="hover:underline">Contact Us</a></li>
-                    <li><a href="#" className="hover:underline">Terms & Conditions</a></li>
-                </ul>
-            </div>
-    
-            {/* Company Information */}
-            <div className="space-y-2 text-center md:text-left">
-                <h3 className="text-lg font-bold">Company Information</h3>
-                <p className="text-sm md:text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                </p>
-            </div>
-        </div>
-    
-        {/* Bottom Section */}
-        <div className="border-t border-gray-500 mt-5 pt-2 text-center text-sm">
-            <p>©️ 2025 Bartr Opinion All Rights Reserved.</p>
-        </div>
-    </footer>
-    
+
+            {/* Mobile and Tablet Drawer */}
+            {isOpen && (
+                <>
+                    {/* Background Overlay */}
+                    <div
+                        className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10"
+                        onClick={toggleDrawer}
+                    ></div>
+
+                    {/* Side Drawer */}
+                    <div
+                        className={`fixed inset-y-0 right-0 w-64 bg-white transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-20`}>
+                        <div className="px-6 pt-5 space-y-4">
+                            {menuList.map((item, index) => (
+                                <Link key={index} href={item.link} onClick={toggleDrawer} className="block text-black hover:text-black py-2 rounded-md text-lg font-medium">
+                                    {item.name}
+                                </Link>
+                            ))}
+                            <div className="flex flex-col items-center justify-between pt-4 border-t border-gray-200">
+                                <span className="text-sm text-gray-600">For 18 years and above only</span>
+                                <Link href="/download">
+                                    <button className="bg-black border px-4 py-1 rounded-md font-medium">
+                                        Download App
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )}
+        </nav>
     );
 }
 
-export default Footer;
+export default Navbar;
