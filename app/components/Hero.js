@@ -15,15 +15,6 @@ function Hero() {
                     Sports, Entertainment, Economy or Finance.
                 </p>
 
-                {/* Call-to-Action Buttons
-                <div className="flex flex-col sm:flex-row gap-6 mb-8">
-                    <Link href="/trade">
-                        <button className="bg-white text-black px-6 py-3 rounded-md font-medium transition-all hover:bg-gray-400 w-full sm:w-auto">
-                            Trade Online
-                        </button>
-                    </Link>
-                </div> */}
-
                 {/* Disclaimer */}
                 <div className="flex items-center gap-2 text-sm text-gray-400">
                     <input
