@@ -20,3 +20,27 @@ body {
   background-size: var(--bg-size); /* Use the variable here */
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.cursor-hovered {
+  background-color: rgba(255, 0, 0, 0.7);
+  transform: scale(1.5);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cursor-default {
+  background-color: white;
+  transform: scale(1);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* globals.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;  /* Prevent horizontal overflow */
+}
+
+#root {
+  height: 100%;
+}
