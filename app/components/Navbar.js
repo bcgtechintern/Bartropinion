@@ -18,8 +18,8 @@ function Navbar() {
 
     return (
         <nav 
-            className="relative sticky top-0 font-[var(--font-clashDisplay)] py-3 px-12 border-b flex items-center justify-between bg-gray-50 relative z-20 bg-transparent text-white"
-            style={{ backgroundImage: 'url(/images/background.png)', backgroundSize: 'cover', backgroundPosition: 'center center' }}
+            className="relative sticky top-0 font-[var(--font-clashDisplay)] py-3 px-12 border-b flex items-center justify-between z-20 text-white"
+            style={{ backgroundImage: 'url(/assets/images/background.png)', backgroundSize: 'cover', backgroundPosition: 'center center' }}
         >
             {/* Desktop and Tablet Menu */}
             <div className="flex items-center justify-between w-full">
@@ -45,7 +45,7 @@ function Navbar() {
                 <div className="lg:hidden">
                     <button
                         onClick={toggleDrawer}
-                        className="p-2 rounded-md text-black hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        className="p-2 rounded-md text-white hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                         <svg
                             className="block h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg"
