@@ -5,7 +5,8 @@ import { Mail, Instagram } from "lucide-react";
 function Footer() {
     return (
         <footer className="text-white px-24 py-10 font-playfair mt-10">
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 bg-[#1C1C1C] p-5 border rounded">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 p-5 border rounded"
+            style={{ backgroundImage: 'url(/assets/background.png)', backgroundSize: 'cover', backgroundPosition: 'center center' }}>
                 {/* Contact Information */}
                 <div className="space-y-2">
                     <h3 className="text-lg font-bold">Contact Information</h3>
