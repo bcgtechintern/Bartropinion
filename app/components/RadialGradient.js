@@ -13,7 +13,7 @@ function RadialGradient() {
       const mouseYpercentage = Math.round((event.pageY / windowHeight) * 100);
 
       setMousePosition({ x: mouseXpercentage, y: mouseYpercentage });
-    };
+    }; 
 
     document.addEventListener("mousemove", handleMouseMove);
     return () => {
