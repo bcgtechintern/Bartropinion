@@ -21,6 +21,7 @@ function Footer() {
                     <a href="mailto" className="text-gray-400 hover:text-white">
                         <Mail className="w-5 h-5" />
                     </a>
+
                 </div>
             </div>
     
