@@ -204,7 +204,7 @@ export default function Features() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
-      <div className="space-y-6 max-w-7xl mx-auto relative z-10">
+      <div className="space-y-6 w-[1200px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}

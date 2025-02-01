@@ -1,124 +1,78 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-
-const TradingCard = ({ card }) => {
-    return (
-        <motion.div
-            whileHover={{ scale: 1.05, boxShadow: "0px 20px 40px rgba(0,0,0,0.3)" }}
-            className="relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 shadow-lg transition-all duration-300"
-        >
-
-            {/* Trading Image */}
-            <div className="flex justify-center mb-4">
-                <Image 
-                    src={card.image}
-                    alt="Trading icon"
-                    width={64}
-                    height={64}
-                    className="rounded-xl shadow-md"
-                />
-            </div>
-
-            {/* Traders Count */}
-            <span className="text-gray-300 text-sm font-medium tracking-wide block mb-2">
-                {card.traders} traders
-            </span>
-
-            {/* Question */}
-            <p className="text-white font-semibold text-lg leading-snug mb-4">
-                {card.question}
-            </p>
-
-            {/* Action Buttons */}
-            <div className="flex gap-3">
-                <motion.button 
-                    whileTap={{ scale: 0.95 }}
-                    whileHover={{ scale: 1.1, boxShadow: "0px 0px 10px rgba(59, 130, 246, 0.7)" }}
-                    className="flex-1 bg-blue-500 text-white py-3 px-5 rounded-xl hover:bg-blue-600 transition-all duration-300"
-                >
-                    Yes ₹{card.yesPrice}
-                </motion.button>
-
-                <motion.button 
-                    whileTap={{ scale: 0.95 }}
-                    whileHover={{ scale: 1.1, boxShadow: "0px 0px 10px rgba(220, 38, 38, 0.7)" }}
-                    className="flex-1 bg-red-500 text-white py-3 px-5 rounded-xl hover:bg-red-600 transition-all duration-300"
-                >
-                    No ₹{card.noPrice}
-                </motion.button>
-            </div>
-        </motion.div>
-    );
-};
+import { motion } from "framer-motion"
+import { TradingChart } from "./trading-chart"
 
 export default function Trading() {
-    const tradingCards = [
-        {
-            image: "/assets/images/book.avif",
-            traders: 49,
-            question: "India and the EU to sign a Free Trade Agreement (FTA) by end of March?",
-            yesPrice: 0.3,
-            noPrice: 0.7,
-        },
-        {
-            image: "/assets/images/shirt1.avif",
-            traders: 869,
-            question: "Arshdeep Singh to be the highest wicket taker in the 2025 T20I series between India and England?",
-            yesPrice: 0.25,
-            noPrice: 0.75,
-        },
-        {
-            image: "/assets/images/book.avif",
-            traders: 33,
-            question: "Rules for Four Labour Codes to be notified and implemented by the Central government by end of June?",
-            yesPrice: 0.15,
-            noPrice: 0.85,
-        },
-        {
-            image: "/assets/images/shirt1.avif",
-            traders: 623,
-            question: "Jos Buttler to be the highest run scorer in the 2025 T20I series between India and England?",
-            yesPrice: 0.35,
-            noPrice: 0.65,
-        },
-    ];
+  return (
+    <section className="relative min-h-screen flex items-center justify-center   text-white px-6 py-20">
 
-    return (
-        <section className="relative min-h-screen flex items-center justify-center text-white px-6 py-20">
-            {/* Floating Background Elements */}
-           
-            
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20 relative z-10">
+        
+        {/* Right Side: Enhanced Trading Chart */}
+        <motion.div
+          className="lg:w-1/2"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <TradingChart />
+        </motion.div>
+        {/* Left Side: Content */}
+        <motion.div
+          className="lg:w-1/2 text-center lg:text-left"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.span
+            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            BCG - Bartr Catalyst Group
+          </motion.span>
 
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10">
-                {/* Left Side: Heading */}
-                <motion.div 
-                    className="lg:w-1/3 text-center lg:text-left"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
-                        Trade when you like,<br/>on what you like.
-                    </h1>
-                    <p className="mt-4 text-gray-300 text-lg">
-                        Get instant insights and trade with confidence on the most trending topics.
-                    </p>
-                </motion.div>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-6">
+            UPGRADE YOUR LIFE
+            <span className="text-blue-400"> BIT BY BIT</span>
+          </h1>
 
-                {/* Right Side: Cards Grid */}
-                <motion.div 
-                    className="lg:w-2/3 grid sm:grid-cols-1 md:grid-cols-2 gap-10"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    {tradingCards.map((card, index) => (
-                        <TradingCard key={index} card={card} />
-                    ))}
-                </motion.div>
+          <motion.p
+            className="text-gray-300 text-lg mb-8 leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            At BCG, we bridge ambition with reality, empowering businesses and entrepreneurs across India and the world.
+            With a deep understanding of the dynamic business landscape, we deliver solutions that are tailored,
+            impactful, and future-ready.
+          </motion.p>
+
+          <motion.div
+            className="flex items-center gap-4 text-sm text-gray-400 justify-center lg:justify-start"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full" />
+              <span>24/7 Trading</span>
             </div>
-        </section>
-    );
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-500 rounded-full" />
+              <span>Real-time Updates</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-purple-500 rounded-full" />
+              <span>Expert Analysis</span>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        
+      </div>
+    </section>
+  )
 }
