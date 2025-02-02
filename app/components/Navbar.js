@@ -33,7 +33,7 @@ function Navbar() {
                 </div>
 
                 <div className="hidden lg:flex items-center gap-4">
-                    <span className="text-sm">For 18 years and above only</span>
+                    <span className="text-sm">For 16 years and above only</span> 
                     <Link href="/download">
                         <button className="bg-black border px-4 py-1 rounded-md font-medium">
                             Download App
@@ -71,16 +71,17 @@ function Navbar() {
 
                     {/* Side Drawer */}
                     <div
-                        className={`fixed inset-y-0 right-0 w-64 bg-white transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-20`}
+                        className={`fixed inset-y-0 right-0 w-64  transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-20`}
+                        style={{ backgroundImage: 'url(/assets/images/background.png)', backgroundSize: 'cover', backgroundPosition: 'center center' }}
                     >
                         <div className="px-6 pt-5 space-y-4">
                             {menuList.map((item, index) => (
-                                <Link key={index} href={item.link} onClick={toggleDrawer} className="block text-black hover:text-black py-2 rounded-md text-lg font-medium">
+                                <Link key={index} href={item.link} onClick={toggleDrawer} className="block text-white hover:text-black py-2 rounded-md text-lg font-medium">
                                     {item.name}
                                 </Link>
                             ))}
-                            <div className="flex flex-col items-center justify-between pt-4 border-t border-gray-200">
-                                <span className="text-sm text-gray-600">For 18 years and above only</span>
+                            <div className="flex space-y-2 flex-col items-center justify-between pt-4 border-t border-gray-200">
+                                <span className="text-sm text-white">For 16 years and above only</span>
                                 <Link href="/download">
                                     <button className="bg-black border px-4 py-1 rounded-md font-medium">
                                         Download App
