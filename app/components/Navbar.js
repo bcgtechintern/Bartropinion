@@ -5,11 +5,19 @@ import Link from "next/link";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState(null);
+
+    const handleClick = (sectionId) => {
+        setActiveSection(sectionId);
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        setIsOpen(false);  // Close the drawer when a menu item is clicked
+    };
+
     const menuList = [
-        { name: "Trading", link: "/trading" },
-        { name: "About", link: "/about" },
-        { name: "Contact", link: "/contact" },
-        { name: "Careers", link: "/careers" }
+        { name: "Home", sectionId: "hero-section" },
+        { name: "About-Bartr", sectionId: "bartr-section" },
+        { name: "About-BartrOpinion", sectionId: "bartropinion-section" },
+        { name: "Contact", sectionId: "contact-section" }
     ];
 
     const toggleDrawer = () => {
@@ -17,7 +25,7 @@ function Navbar() {
     };
 
     return (
-        <nav 
+        <nav
             className="relative sticky top-0 font-[var(--font-clashDisplay)] py-3 px-12 border-b flex items-center justify-between z-20 text-white"
             style={{ backgroundImage: 'url(/assets/images/background.png)', backgroundSize: 'cover', backgroundPosition: 'center center' }}
         >
@@ -26,16 +34,20 @@ function Navbar() {
                 <h1 className="text-2xl font-semibold">BartrOpinion</h1>
                 <div className="hidden lg:flex gap-6 items-center text-lg">
                     {menuList.map((item, index) => (
-                        <Link key={index} href={item.link} className="hover:underline">
+                        <button
+                            key={index}
+                            onClick={() => handleClick(item.sectionId)}
+                            className={`px-3 py-1 rounded-md transition ${activeSection === item.sectionId ? "bg-blue-500 text-white" : "hover:bg-gray-700"
+                                }`}
+                        >
                             {item.name}
-                        </Link>
+                        </button>
                     ))}
                 </div>
-
                 <div className="hidden lg:flex items-center gap-4">
-                    <span className="text-sm">For 16 years and above only</span> 
+                    <span className="text-sm">For 16 years and above only</span>
                     <Link href="/download">
-                        <button className="bg-black border px-4 py-1 rounded-md font-medium">
+                        <button className="bg-white text-black border px-4 py-1 rounded-md font-medium">
                             Download App
                         </button>
                     </Link>
@@ -71,17 +83,21 @@ function Navbar() {
 
                     {/* Side Drawer */}
                     <div
-                        className={`fixed inset-y-0 right-0 w-64  transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-20`}
+                        className={`fixed inset-y-0 right-0 w-64 transition-transform transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-20`}
                         style={{ backgroundImage: 'url(/assets/images/background.png)', backgroundSize: 'cover', backgroundPosition: 'center center' }}
                     >
                         <div className="px-6 pt-5 space-y-4">
                             {menuList.map((item, index) => (
-                                <Link key={index} href={item.link} onClick={toggleDrawer} className="block text-white hover:text-black py-2 rounded-md text-lg font-medium">
+                                <button
+                                    key={index}
+                                    onClick={() => handleClick(item.sectionId)}
+                                    className="block text-white py-2 rounded-md text-lg font-medium"
+                                >
                                     {item.name}
-                                </Link>
+                                </button>
                             ))}
-                            <div className="flex space-y-2 flex-col items-center justify-between pt-4 border-t border-gray-200">
-                                <span className="text-sm text-white">For 16 years and above only</span>
+                            <div className="flex flex-col items-center justify-between pt-4 border-t border-gray-200">
+                                <span className="text-sm text-gray-400">For 16 years and above only</span>
                                 <Link href="/download">
                                     <button className="bg-black border px-4 py-1 rounded-md font-medium">
                                         Download App

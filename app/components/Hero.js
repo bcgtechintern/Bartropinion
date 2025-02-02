@@ -29,7 +29,7 @@ function Hero() {
     };
 
     return (
-        <div className="text-white flex flex-row justify-start items-start gap-[15rem] text-left py-12 px-6 sm:px-12 ml-2 sm:ml-10">
+        <div id="hero-section" className="text-white flex flex-row justify-start items-start gap-[15rem] text-left py-12 px-6 sm:px-12 ml-2 sm:ml-10">
             <div className="lg:pt-20">
                 <h1 className="text-3xl sm:text-4xl md:text-6xl mt-4 w-full sm:w-[700px] mb-4 font-bold mb-6">
                     {styleText(text)}
