@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function Hero() {
     const [text, setText] = useState("");
-    const fullText = "Invest in Your Opinion and Earn Money";
+    const fullText = "INVEST IN YOUR OPINION AND EARN MONEY";
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ function Hero() {
     const styleText = (text) => {
         const words = text.split(" ");
         return words.map((word, index) => {
-            if (word === "Opinion" || word === "Money" || word === "Earn") {
+            if (word === "OPINION" || word === "MONEY" || word === "EARN") {
                 return <span key={index} className="text-blue-400">{word} </span>;
             }
             return <span key={index}>{word} </span>;

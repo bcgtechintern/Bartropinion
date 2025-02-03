@@ -208,7 +208,7 @@ export default function Features() {
   ]
 
   return (
-    <section id="bartropinion-section"  className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
+    <section id="bartropinion-section" className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
       <div className="space-y-6 w-[1200px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -225,7 +225,7 @@ export default function Features() {
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid sm:grid-cols-1 lg:grid-cols-3 gap-8"
           initial="hidden"
           animate="visible"
           variants={{
@@ -235,11 +235,11 @@ export default function Features() {
         >
           <motion.article
             whileHover={{ scale: 1.08, boxShadow: "0px 20px 40px rgba(0, 255, 255, 0.2)" }}
-            className="relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 h-96 flex flex-col justify-between transition-all duration-300 shadow-lg hover:border-blue-500/50 cursor-pointer"
+            className="relative bg-white/10 w-full backdrop-blur-lg border border-white/20 rounded-3xl p-8 h-96 flex flex-col justify-between transition-all duration-300 shadow-lg hover:border-blue-500/50 cursor-pointer"
           // onClick={() => window.open("https://bartr.in", "_blank")}
           >
-            <h2 className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">What's Bartr Opinion?</h2>
-            <p className="text-gray-300 text-xl">
+            <h2 className="text-2xl sm:text-2xl md:text-4xl lg:text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">What's Bartr Opinion?</h2>
+            <p className="text-gray-300 text-xl md:text-3xl lg:text-xl">
               Opinion trading allows users to predict outcomes in various fields like sports, politics, stocks, and crypto. Participants earn rewards for accurate predictions while competing in a secure, engaging environment.
             </p>
             <motion.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 1 }}>
@@ -263,19 +263,20 @@ export default function Features() {
                   transform: flippedIndex === index ? "rotateY(180deg)" : "rotateY(0deg)",
                 }}
               >
-                <motion.article className="absolute w-full h-full backface-hidden bg-[#1C1C1C] text-white p-8 flex flex-col justify-between rounded-3xl transform transition-all duration-300 shadow-lg hover:border-pink-500/50 border border-white/10">
+                <motion.article className="absolute w-full lg:w-full h-full backface-hidden bg-[#1C1C1C] text-white p-8 flex flex-col justify-between rounded-3xl transform transition-all duration-300 shadow-lg hover:border-pink-500/50 border border-white/10">
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       {feature.icon}
-                      <h2 className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                      <h2 className="text-2xl sm:text-2xl md:text-4xl lg:text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                         {feature.title}
                       </h2>
+
                     </div>
-                    <p className="leading-relaxed text-gray-300 text-xl mt-3">{feature.subtitle}</p>
+                    <p className="leading-relaxed text-gray-300 text-xl md:text-3xl lg:text-xl mt-3">{feature.subtitle}</p>
                   </div>
                   <button
                     onClick={() => setFlippedIndex(index)}
-                    className="inline-flex items-center text-white hover:opacity-80 text-sm gap-2"
+                    className="inline-flex items-center text-white hover:opacity-80 text-sm md:text-2xl lg:text-sm gap-2"
                   >
                     Read more
                     <Image src="/assets/images/arrow.png" alt="" width={24} height={24} />
@@ -284,11 +285,11 @@ export default function Features() {
 
                 <motion.article className="absolute w-full h-full backface-hidden bg-[#1C1C1C] text-white p-8 flex flex-col justify-between rounded-3xl transform transition-all duration-300 shadow-lg hover:border-pink-500/50 border border-white/10 [transform:rotateY(180deg)]">
                   <div className="overflow-y-auto flex-1 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent pr-4">
-                    <p className="leading-relaxed  text-gray-300 text-lg">{feature.description}</p>
+                    <p className="leading-relaxed  text-gray-300 text-lg md:text-3xl lg:text-lg">{feature.description}</p>
                   </div>
                   <button
                     onClick={() => setFlippedIndex(null)}
-                    className="inline-flex items-center text-white hover:opacity-80 text-sm gap-2 mt-4"
+                    className="inline-flex items-center text-white hover:opacity-80 text-sm md:text-2xl lg:text-sm gap-2 mt-4"
                   >
                     Back
                     <Image src="/assets/images/arrow.png" alt="" width={24} height={24} className="rotate-180" />

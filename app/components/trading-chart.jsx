@@ -163,7 +163,7 @@ export const TradingChart = () => {
   }, "");
 
   return (
-    <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-3xl bg-black/20 backdrop-blur-sm border border-white/10 p-4 md:p-6">
+    <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-3xl bg-black/20 backdrop-blur-sm border border-white/10 p-4 md:p-6 ">
       <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6 flex flex-col sm:flex-row justify-between gap-2 sm:gap-4 z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -254,3 +254,4 @@ export const TradingChart = () => {
     </div>
   );
 };
+

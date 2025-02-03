@@ -5,7 +5,7 @@ import { TradingChart } from "./trading-chart"
 
 export default function Trading() {
   return (
-    <section id="trading-section" className="relative min-h-screen flex flex-col items-center justify-center text-white px-6 py-20">
+    <section id="bartr-section" className="relative min-h-screen flex flex-col items-center justify-center text-white px-6 py-20">
       {/* Heading moved to the top */}
       <motion.h2
         className="text-3xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-8 text-center"
@@ -88,7 +88,7 @@ export default function Trading() {
                   <span>Angel Investing</span>
                 </div>
               </div>
-              <div className="w-full flex justify-center md:justify-start mt-4">
+              <div className="w-full flex justify-center lg:justify-start mt-4">
                 <a
                   href="https://bartr.in"
                   target="_blank"

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Mail, Instagram } from "lucide-react";
+import { Mail, Instagram, Linkedin, Twitter } from "lucide-react";
 
 function Footer() {
     const [activeSection, setActiveSection] = useState(null);
@@ -10,7 +10,7 @@ function Footer() {
             document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });  
         };
     return (
-        <footer className="text-white px-4 md:px-16 py-6 font-playfair mt-10">
+        <footer id="contact-section" className="text-white px-4 md:px-16 py-6 font-playfair mt-10">
             <div
     className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 p-6 md:p-8 border rounded-xl bg-gradient-to-r from-gray-800 via-gray-900 to-black"
     style={{
@@ -23,8 +23,8 @@ function Footer() {
                 {/* Contact Information */}
                 <div className="space-y-4 text-center md:text-left">
                     <h3 className="text-2xl font-semibold text-blue-400">Contact Information</h3>
-                    <p className="text-lg font font-bold">Email: <a href="mailto:bartr_opinion@gmail.com" className="underline text-blue-400 hover:text-white">bartr_opinion@gmail.com</a></p>
-                    <p className="text-lg font-bold">Address: Nagpur / Pune / Mumbai</p>
+                    {/* <p className="text-lg font font-bold">Email: <a href="mailto:bartr_opinion@gmail.com" className="underline text-blue-400 hover:text-white">bartr_opinion@gmail.com</a></p> */}
+                    <p className="text-lg font-bold">Location: Malaysia / Pune / Mumbai</p>
                     <p className="text-lg font-bold">Visit Us On:</p>
                     <div className="flex justify-center md:justify-start space-x-6">
                         <a href="#" className="text-gray-400 hover:text-white">
@@ -32,6 +32,12 @@ function Footer() {
                         </a>
                         <a href="mailto:bartr_opinion@gmail.com" className="text-gray-400 hover:text-white">
                             <Mail className="w-8 h-8 transition-all transform hover:scale-110" />
+                        </a>
+                        <a href="mailto:bartr_opinion@gmail.com" className="text-gray-400 hover:text-white">
+                            <Linkedin className="w-8 h-8 transition-all transform hover:scale-110" />
+                        </a>
+                        <a href="mailto:bartr_opinion@gmail.com" className="text-gray-400 hover:text-white">
+                            <Twitter className="w-8 h-8 transition-all transform hover:scale-110" />
                         </a>
                     </div>
                 </div>
