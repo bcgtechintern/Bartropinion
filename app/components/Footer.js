@@ -36,9 +36,9 @@ function Footer() {
                         <a href="mailto:bartr_opinion@gmail.com" className="text-gray-400 hover:text-white">
                             <Linkedin className="w-8 h-8 transition-all transform hover:scale-110" />
                         </a>
-                        <a href="mailto:bartr_opinion@gmail.com" className="text-gray-400 hover:text-white">
+                        {/* <a href="mailto:bartr_opinion@gmail.com" className="text-gray-400 hover:text-white">
                             <Twitter className="w-8 h-8 transition-all transform hover:scale-110" />
-                        </a>
+                        </a> */}
                     </div>
                 </div>
 
